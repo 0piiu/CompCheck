@@ -2,16 +2,18 @@ package com.example.compcheck.model;
 
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 @Entity(
-        tableName = "Template_items",
+        tableName = "template_items",
         foreignKeys = @ForeignKey(
                 entity = ChecklistTemplate.class,
                 parentColumns = "id",
-                childColumns = "TemplateId",
+                childColumns = "templateId",
                 onDelete = ForeignKey.CASCADE
-        )
+        ),
+        indices = {@Index("templateId")}
 )
 public class TemplateItem {
     @PrimaryKey(autoGenerate = true)

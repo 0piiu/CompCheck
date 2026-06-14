@@ -3,6 +3,7 @@ package com.example.compcheck.model;
 
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 @Entity(
@@ -20,8 +21,11 @@ import androidx.room.PrimaryKey;
                         childColumns = "templateItemId",
                         onDelete = ForeignKey.CASCADE
                 )
+        },
+        indices = {
+                @Index("recordId"),
+                @Index("templateItemId")
         }
-
 )
 public class RecordItem {
     @PrimaryKey(autoGenerate = true)
